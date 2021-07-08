@@ -1,0 +1,80 @@
+.main-section
+{
+    background-color: lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#hero-pizza
+{
+    width: 600px;
+    height: 500px;
+}
+
+.add-to-cart:hover
+{
+    border-radius: 3px;
+    color: white;
+    background-color: tomato;
+    
+}
+
+.add-to-cart
+{
+    border: 2px solid tomato;
+    
+    color: tomato;
+    background-color: white;
+    
+}
+
+
+.single-card
+{
+    border-radius: 2rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.menu
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap:2em; 
+    grid-row-gap:1em;   
+
+}
+
+@media(max-width:870px)
+{
+    #hero-pizza
+    {
+        height: 50%;
+        width:50%;
+    }
+    .main-section
+    {
+        background-color: lightgray;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .menu
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap:2em; 
+        grid-row-gap:1em;   
+        
+
+    }
+    #adminTable
+    {
+        width: 50%;
+    }
+}
+
