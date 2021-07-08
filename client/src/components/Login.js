@@ -15,7 +15,7 @@ const Login = ({setuserLoggedin}) => {
   const submitForm=async(e)=>{
     e.preventDefault();
     
-    const res=await fetch('http://localhost:5000/login', {
+    const res=await fetch('https://sliceofdelight.herokuapp.com/login', {
 
       method:'post',
       headers: {

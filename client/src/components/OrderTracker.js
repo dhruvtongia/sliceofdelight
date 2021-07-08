@@ -14,7 +14,7 @@ const OrderTracker = () => {
   const history=useHistory();
 
   const getorderdetails=async()=>{
-    const res=await fetch(`http://localhost:5000/customer/orders/${orderId}`,{
+    const res=await fetch(`https://sliceofdelight.herokuapp.com/customer/orders/${orderId}`,{
           method: 'GET',
           headers: {
               "Content-type": "application/json; charset=UTF-8"
@@ -47,7 +47,7 @@ const OrderTracker = () => {
 
   useEffect(() => {
     getorderdetails();
-    setsocket(io('ws://localhost:5000' ));
+    setsocket(io('ws://sliceofdelight.herokuapp.com/' ));
   }, [])
     
   const updateOrderTracker=(order)=>{

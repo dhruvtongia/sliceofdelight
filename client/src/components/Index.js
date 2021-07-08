@@ -8,7 +8,7 @@ const Index = ({getMenu,userLoggedin,setcartCounter,menu}) => {
 
 const updateCart=(pizza)=>{
 
-  fetch("http://localhost:5000/update-cart", {
+  fetch("https://sliceofdelight.herokuapp.com/update-cart", {
         method: 'POST',
         body:pizza,
         headers: {
@@ -33,7 +33,7 @@ const removeMenu=(e)=>{
 
   const menuId=e.target.dataset.menuid;
 
-  fetch('http://localhost:5000/',{
+  fetch('https://sliceofdelight.herokuapp.com/',{
 
     method:'delete',
     headers:{

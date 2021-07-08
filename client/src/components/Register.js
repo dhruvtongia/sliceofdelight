@@ -14,7 +14,7 @@ const Register = () => {
   const register=async(e)=>{
     e.preventDefault();
     
-    const res=await fetch('http://localhost:5000/register', {
+    const res=await fetch('https://sliceofdelight.herokuapp.com/register', {
 
       method:'post',
       headers: {

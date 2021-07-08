@@ -17,7 +17,7 @@ const Orderstatus = ({order,setorders ,getAdminOrders}) => {
     const updateStatus=(e)=>{
         const orderId=inputRef.current.value;
         const status=e.target.value;
-        fetch("http://localhost:5000/admin/orders/status", {
+        fetch("https://sliceofdelight.herokuapp.com/admin/orders/status", {
         method: 'POST',
         body:JSON.stringify({orderId,status}),
         headers: {

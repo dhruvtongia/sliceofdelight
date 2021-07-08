@@ -11,7 +11,7 @@ const Cart = ({setcartCounter,userLoggedin}) => {
 
     useEffect(() => {
         
-        fetch('http://localhost:5000/cart',{
+        fetch('https://sliceofdelight.herokuapp.com/cart',{
         method: 'GET',
         headers: {
             "Content-type": "application/json; charset=UTF-8"

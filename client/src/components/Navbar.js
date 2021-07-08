@@ -6,7 +6,7 @@ const Navbar = ({cartCounter,userLoggedin,setuserLoggedin}) => {
     const history=useHistory();
    const logout=()=>{
 
-        fetch('http://localhost:5000/logout',{
+        fetch('https://sliceofdelight.herokuapp.com/logout',{
 
             method:'post',
             credentials:'include'

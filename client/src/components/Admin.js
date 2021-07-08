@@ -10,7 +10,7 @@ const Admin = () => {
 
   const getAdminOrders=async()=>{
         try {
-            const res=await fetch('http://localhost:5000/admin/orders', {
+            const res=await fetch('https://sliceofdelight.herokuapp.com/admin/orders', {
             method:'GET',
             headers: {
                 "Content-type": "application/json; charset=UTF-8"

@@ -25,7 +25,7 @@ const changeHandler=(e)=>{
 const submitForm=async(e)=>{
     e.preventDefault();
 
-    const res=await fetch('http://localhost:5000/admin/add-menu', {
+    const res=await fetch('https://sliceofdelight.herokuapp.com/admin/add-menu', {
 
       method:'post',
       headers: {

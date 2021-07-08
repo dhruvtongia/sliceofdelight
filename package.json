@@ -9,8 +9,11 @@
     "client":"cd client && npm start",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
+  "engines": {
+    "node": "14.16.0"
+    },
   "keywords": [],
-  "author": "",
+  "author": "Dhruv Tongia",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
