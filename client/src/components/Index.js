@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-
+import { baseUrl } from '../Baseurl';
 const Index = ({getMenu,userLoggedin,setcartCounter,menu}) => {
 
     useEffect(() => {
@@ -8,7 +8,7 @@ const Index = ({getMenu,userLoggedin,setcartCounter,menu}) => {
 
 const updateCart=(pizza)=>{
 
-  fetch("https://sliceofdelight.herokuapp.com/update-cart", {
+  fetch(baseUrl+"/update-cart", {
         method: 'POST',
         body:pizza,
         headers: {
@@ -33,7 +33,7 @@ const removeMenu=(e)=>{
 
   const menuId=e.target.dataset.menuid;
 
-  fetch('https://sliceofdelight.herokuapp.com/',{
+  fetch(baseUrl,{
 
     method:'delete',
     headers:{

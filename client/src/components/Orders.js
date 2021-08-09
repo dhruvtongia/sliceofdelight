@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import {NavLink,useHistory} from 'react-router-dom';
 import moment from "moment";
-
+import { baseUrl } from '../Baseurl';
 
 const Orders = ({setcartCounter}) => {
 
@@ -11,7 +11,7 @@ const Orders = ({setcartCounter}) => {
     const getOrders=async()=>{
 
       try {
-        const res=await fetch('https://sliceofdelight.herokuapp.com/customer/orders',{
+        const res=await fetch(baseUrl+'/customer/orders',{
             method: 'GET',
             headers: {
                 "Content-type": "application/json; charset=UTF-8"

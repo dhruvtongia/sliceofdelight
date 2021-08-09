@@ -7,6 +7,7 @@ const customerController=()=>
 
         index(req,res){
             
+           // console.log("in");
             Menu.find()
             .then(menu=>{
                 res.json({menu,data:req.session.cart,user:req.user});

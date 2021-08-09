@@ -2,7 +2,7 @@ import moment from 'moment';
 import React,{useState,useEffect,useRef} from 'react';
 import { useParams,useHistory} from 'react-router-dom';
 import  io  from "socket.io-client";
-
+import { baseUrl } from '../Baseurl';
 
 const OrderTracker = () => {
   const orderId=useParams().id;// usepramas has the url params and we named the param as id 
@@ -14,7 +14,7 @@ const OrderTracker = () => {
   const history=useHistory();
 
   const getorderdetails=async()=>{
-    const res=await fetch(`https://sliceofdelight.herokuapp.com/customer/orders/${orderId}`,{
+    const res=await fetch(baseUrl+`/customer/orders/${orderId}`,{
           method: 'GET',
           headers: {
               "Content-type": "application/json; charset=UTF-8"
@@ -47,7 +47,7 @@ const OrderTracker = () => {
 
   useEffect(() => {
     getorderdetails();
-    setsocket(io('ws://sliceofdelight.herokuapp.com/' ));
+    setsocket(io('ws://sliceofdelight.herokuapp.com/'));
   }, [])
     
   const updateOrderTracker=(order)=>{

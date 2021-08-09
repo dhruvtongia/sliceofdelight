@@ -1,6 +1,6 @@
 import React,{useState,useRef} from 'react'
 import {useHistory} from 'react-router-dom'
-
+import { baseUrl } from '../Baseurl';
 
 const Register = () => {
   const history=useHistory();
@@ -14,7 +14,7 @@ const Register = () => {
   const register=async(e)=>{
     e.preventDefault();
     
-    const res=await fetch('https://sliceofdelight.herokuapp.com/register', {
+    const res=await fetch(baseUrl+'/register', {
 
       method:'post',
       headers: {

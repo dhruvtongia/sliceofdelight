@@ -14,7 +14,6 @@ const dotenv=require('dotenv');
 dotenv.config({path:'./config.env'});
 
 const app=express();
-
 // importing all routes
 const adminRoutes=require('./routes/adminRoutes');
 const authRoutes=require('./routes/authRoutes');
@@ -25,7 +24,7 @@ const server=http.createServer(app);
 
 //------------ connecting to the mongodb database----------// 
 const url=process.env.DATABASE;
-const PORT=process.env.PORT||5000;
+const PORT=process.env.PORT||8080;
 
 mongoose.connect(url,{useNewUrlParser:true,
     useUnifiedTopology:true,
@@ -35,7 +34,7 @@ mongoose.connect(url,{useNewUrlParser:true,
                         })
     .then(result=>{
 
-        server.listen(PORT,()=> console.log('server connected'));
+        server.listen(PORT,()=> console.log('server connected',PORT));
     })
     .catch(err=>{
         console.log(err);
@@ -53,9 +52,13 @@ const eventEmitter= new Emitter();
 app.set('eventEmitter',eventEmitter);
 
 //-----------middlewares--------------//
+
 const adminAuth=require('./middlewares/adminAuth');
 app.use(express.urlencoded({extended:true}));
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials:true,
+}));
 app.use(express.json());
 
 
@@ -85,13 +88,13 @@ app.use(passport.session());
 
 //---------Routes--------------//
 
-app.use(customerRoutes);
-app.use(cartRoutes);
-app.use(authRoutes);
-app.use(adminRoutes);
+app.use('/api',customerRoutes);
+app.use('/api',cartRoutes);
+app.use('/api',authRoutes);
+app.use('/api',adminRoutes);
 
 // api for updating the order status using socket io
-app.post('/admin/orders/status',adminAuth,(req,res)=>{
+app.post('/api/admin/orders/status',adminAuth,(req,res)=>{
 
     const {orderId,status}=req.body;
 
@@ -112,8 +115,12 @@ app.post('/admin/orders/status',adminAuth,(req,res)=>{
 
 //---------- socket io -----------//
 
-var io = socketio(server);
-
+// var io = socketio(server);
+var io = socketio(server,{
+    cors:{
+        origin:'http://localhost:3000'
+    }
+});
 
  io.on("connection", (socket)=>{
     
@@ -135,7 +142,7 @@ if(process.env.NODE_ENV==="production")
 {
     
     const path=require("path");
-    app.use(express.static(path.join(__dirname, 'client/build')))
+    app.use(express.static(path.join(__dirname, '/client/build')))
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'client/build'))
     })

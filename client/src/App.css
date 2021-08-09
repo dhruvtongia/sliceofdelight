@@ -1,6 +1,7 @@
 .main-section
 {
-    background-color: lightgray;
+    background: rgb(241,179,8);
+    background: linear-gradient(90deg, rgba(241,179,8,1) 43%, rgba(255,97,0,1) 100%);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -44,7 +45,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap:2em; 
     grid-row-gap:1em;   
-
+    
 }
 
 @media(max-width:870px)

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {useHistory } from 'react-router-dom';
 import Orderstatus from './Orderstatus'
-
+import { baseUrl } from '../Baseurl';
 
 const Admin = () => {
 
@@ -10,7 +10,7 @@ const Admin = () => {
 
   const getAdminOrders=async()=>{
         try {
-            const res=await fetch('https://sliceofdelight.herokuapp.com/admin/orders', {
+            const res=await fetch(baseUrl+'/admin/orders', {
             method:'GET',
             headers: {
                 "Content-type": "application/json; charset=UTF-8"

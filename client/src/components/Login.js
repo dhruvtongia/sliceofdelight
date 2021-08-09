@@ -1,6 +1,6 @@
 import React,{useState,useRef} from 'react'
 import {NavLink,useHistory } from 'react-router-dom'
-
+import { baseUrl } from '../Baseurl';
 
 const Login = ({setuserLoggedin}) => {
 
@@ -15,7 +15,7 @@ const Login = ({setuserLoggedin}) => {
   const submitForm=async(e)=>{
     e.preventDefault();
     
-    const res=await fetch('https://sliceofdelight.herokuapp.com/login', {
+    const res=await fetch(baseUrl+'/login', {
 
       method:'post',
       headers: {

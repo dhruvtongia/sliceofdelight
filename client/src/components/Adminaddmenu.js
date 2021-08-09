@@ -1,6 +1,6 @@
 import React,{useState,useRef} from 'react'
 import { useHistory } from 'react-router';
-
+import { baseUrl } from '../Baseurl';
 const Adminaddmenu = ({userLoggedin}) => {
 
   const history=useHistory();
@@ -25,7 +25,7 @@ const changeHandler=(e)=>{
 const submitForm=async(e)=>{
     e.preventDefault();
 
-    const res=await fetch('https://sliceofdelight.herokuapp.com/admin/add-menu', {
+    const res=await fetch(baseUrl+'/admin/add-menu', {
 
       method:'post',
       headers: {

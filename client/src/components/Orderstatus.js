@@ -1,6 +1,6 @@
 import React,{useRef} from 'react'
 import moment from 'moment'
-
+import { baseUrl } from '../Baseurl';
 const Orderstatus = ({order,setorders ,getAdminOrders}) => {
 
     const currentStatus=(order.orderStatus);
@@ -17,7 +17,7 @@ const Orderstatus = ({order,setorders ,getAdminOrders}) => {
     const updateStatus=(e)=>{
         const orderId=inputRef.current.value;
         const status=e.target.value;
-        fetch("https://sliceofdelight.herokuapp.com/admin/orders/status", {
+        fetch(baseUrl+'admin/orders/status', {
         method: 'POST',
         body:JSON.stringify({orderId,status}),
         headers: {

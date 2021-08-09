@@ -1,12 +1,13 @@
 import React from 'react';
 import {NavLink,useHistory} from 'react-router-dom';
+import { baseUrl } from '../Baseurl';
 
 const Navbar = ({cartCounter,userLoggedin,setuserLoggedin}) => {
 
     const history=useHistory();
    const logout=()=>{
 
-        fetch('https://sliceofdelight.herokuapp.com/logout',{
+        fetch(baseUrl+'/logout',{
 
             method:'post',
             credentials:'include'
@@ -23,7 +24,7 @@ const Navbar = ({cartCounter,userLoggedin,setuserLoggedin}) => {
         <>
             <nav className="navbar navbar-collapse navbar-light bg-light">
                 <div className="container-fluid">
-                    <NavLink className="navbar-brand" to="/">Pizza</NavLink>
+                    <NavLink className="navbar-brand" to="/">Slice of Delight</NavLink>
 
                     <ul className="nav ml-auto mb-2 mb-lg-0">
 

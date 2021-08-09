@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {NavLink,useHistory } from 'react-router-dom'
-
+import { baseUrl } from '../Baseurl';
 const Cart = ({setcartCounter,userLoggedin}) => {
 
     const history=useHistory();
@@ -11,7 +11,7 @@ const Cart = ({setcartCounter,userLoggedin}) => {
 
     useEffect(() => {
         
-        fetch('https://sliceofdelight.herokuapp.com/cart',{
+        fetch(baseUrl+'/cart',{
         method: 'GET',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -32,7 +32,7 @@ const Cart = ({setcartCounter,userLoggedin}) => {
 
         e.preventDefault();
         try{
-        const res= await fetch('http://localhost:5000/orders',{
+        const res= await fetch(baseUrl+'/orders',{
             method: 'POST',
             body:JSON.stringify({address,phone}),
             headers: {
@@ -55,7 +55,7 @@ const Cart = ({setcartCounter,userLoggedin}) => {
     const removeItem=(e)=>{
 
         const itemId=e.target.dataset.item;
-        fetch('http://localhost:5000/cart',{
+        fetch(baseUrl+'/cart',{
 
         method:'delete',
         body:JSON.stringify({itemId}),

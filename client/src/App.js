@@ -13,6 +13,7 @@ import Orders from './components/Orders'
 import OrderTracker from './components/OrderTracker'
 import Adminaddmenu from './components/Adminaddmenu';
 import './tracker.scss';
+import { baseUrl } from './Baseurl';
 
 const App = () => {
   //const  cartCounterContext = React.createContext(0);
@@ -25,7 +26,7 @@ const App = () => {
   
 
   const getMenu=()=>{
-    fetch('http://localhost:5000/',{
+    fetch(baseUrl,{
         method: 'GET',
         headers: {
           //Accept:"application/json",
