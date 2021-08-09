@@ -47,7 +47,7 @@ const OrderTracker = () => {
 
   useEffect(() => {
     getorderdetails();
-    setsocket(io('ws://sliceofdelight.herokuapp.com/'));
+    setsocket(io('/' ));
   }, [])
     
   const updateOrderTracker=(order)=>{

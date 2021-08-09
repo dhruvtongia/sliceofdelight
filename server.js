@@ -115,12 +115,12 @@ app.post('/api/admin/orders/status',adminAuth,(req,res)=>{
 
 //---------- socket io -----------//
 
-// var io = socketio(server);
-var io = socketio(server,{
-    cors:{
-        origin:'http://localhost:3000'
-    }
-});
+var io = socketio(server);
+// var io = socketio(server,{
+//     cors:{
+//         origin:'http://localhost:3000'
+//     }
+// });
 
  io.on("connection", (socket)=>{
     
