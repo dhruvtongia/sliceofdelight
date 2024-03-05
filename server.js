@@ -47,12 +47,9 @@ const eventEmitter = new Emitter();
 app.set("eventEmitter", eventEmitter);
 
 //-----------middlewares--------------//
-
-const adminAuth = require("./middlewares/adminAuth");
-app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "*",
+    origin: "https://slice-of-delight.vercel.app",
     credentials: true,
   })
 );
@@ -108,7 +105,7 @@ app.post("/api/admin/orders/status", adminAuth, (req, res) => {
 var io = socketio(server);
 var io = socketio(server, {
   cors: {
-    origin: "https://slice-of-delight.vercel.app/",
+    origin: "https://slice-of-delight.vercel.app",
   },
 });
 
