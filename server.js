@@ -52,7 +52,7 @@ const adminAuth = require("./middlewares/adminAuth");
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
   })
 );
@@ -106,11 +106,11 @@ app.post("/api/admin/orders/status", adminAuth, (req, res) => {
 //---------- socket io -----------//
 
 var io = socketio(server);
-// var io = socketio(server,{
-//     cors:{
-//         origin:'http://localhost:3000'
-//     }
-// });
+var io = socketio(server, {
+  cors: {
+    origin: "https://slice-of-delight.vercel.app/",
+  },
+});
 
 io.on("connection", (socket) => {
   socket.on("join", (roomName) => {
