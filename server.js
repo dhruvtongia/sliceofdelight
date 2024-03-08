@@ -51,7 +51,11 @@ const adminAuth = require("./middlewares/adminAuth");
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: ["https://slice-of-delight.vercel.app", "http://localhost:3000"],
+    origin: [
+      "https://slice-of-delight.vercel.app",
+      "http://localhost:3000",
+      "https://main.d1dg2xbxemue1e.amplifyapp.com",
+    ],
     credentials: true,
     credentials: true,
   })
