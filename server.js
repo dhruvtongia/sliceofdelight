@@ -62,6 +62,7 @@ app.use(express.json());
 const mongoStore = MongoDbStore.create({
   mongoUrl: url,
   collectionName: "sessions", // name of the collection in database
+  ttl: 200000,
 });
 //session config
 app.use(
