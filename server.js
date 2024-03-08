@@ -51,12 +51,7 @@ const adminAuth = require("./middlewares/adminAuth");
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: [
-      "https://slice-of-delight.vercel.app",
-      "http://localhost:3000",
-      "https://main.d1dg2xbxemue1e.amplifyapp.com",
-    ],
-    credentials: true,
+    origin: ["https://slice-of-delight.vercel.app", "http://localhost:3000"],
     credentials: true,
   })
 );
@@ -76,7 +71,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     store: mongoStore,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 24 hours
+    cookie: { maxAge: 1000 * 60 * 60 * 24, secure: true, sameSite: "None" }, // 24 hours
   })
 );
 
